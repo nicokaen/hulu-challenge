@@ -1,5 +1,5 @@
-import { CollectionItem, HuluHub } from "./types";
-import { getImage } from "./utils/image.utils";
+import { HuluHub, CollectionItem } from "../api/types";
+import { getImage } from "../utils/image.utils";
 
 export async function initGrid(hubData: HuluHub) {
     // hydrate main hub title

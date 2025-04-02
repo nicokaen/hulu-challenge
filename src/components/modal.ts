@@ -1,5 +1,6 @@
-import { CollectionItem, HuluHub } from './types';
-import { getImage } from './utils/image.utils';
+import { CollectionItem, HuluHub } from "../api/types";
+import { getImage } from "../utils/image.utils";
+
 
 export function initModal(hubData: HuluHub) {
   const modal = document.getElementById('modal')!;

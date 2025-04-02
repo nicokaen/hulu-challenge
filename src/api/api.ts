@@ -1,5 +1,4 @@
-import mock from './mock';
-import { CollectionComponent, HuluHub } from './types';
+
 
 /**
  * API Integration
@@ -8,6 +7,9 @@ import { CollectionComponent, HuluHub } from './types';
  * - Hub Data: https://d1q0vy0v52gyjr.cloudfront.net/hub.json
  * - Collections: https://d1q0vy0v52gyjr.cloudfront.net/collections/<id>.json
  */
+
+import mock from "./mock";
+import { HuluHub, CollectionComponent } from "./types";
 
 export const fetchHuluHub = async (): Promise<HuluHub> => {
   //   const response = await fetch(
