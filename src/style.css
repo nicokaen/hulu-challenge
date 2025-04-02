@@ -1,0 +1,104 @@
+:root {
+  --hulu-green: #1ce783;
+  --hulu-gray: #1e2126;
+  --hulu-text: white;
+  --hulu-green-light: #1bb159;
+  --hulu-green-dark: #0e7c61;
+  --hulu-green-darker: #0c6b58;
+  --hulu-green-darkest: #044f3c;
+  --hulu-green-lighter: #2bcf6e;
+  --hulu-green-lightest: #e8f7f2;
+}
+
+body {
+  font-family: 'Archivo', sans-serif;
+  margin: 0;
+  background-color: var(--hulu-gray);
+  color: var(--hulu-text);
+}
+
+.hub {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0 16px 16px;
+}
+
+.hub__title {
+  color: var(--hulu-green);
+}
+
+.category {
+  width: 100%;
+}
+
+.category__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.category__row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.card {
+  flex: 0 0 18%;
+  height: 160px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.card:focus {
+  outline: none;
+  border: 2px solid #007acc;
+}
+
+.card__thumbnail {
+  background-color: gray;
+  height: 100%;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.card__title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 0 2px 4px 2px;
+  position: relative;
+}
+
+.category--loading .card__title::before,
+.category--loading .card__thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
