@@ -4,8 +4,9 @@ import { CollectionItem, HuluHub } from './types.ts';
 import { fetchHuluHub } from './api.ts';
 import { getImage } from './utils/image.utils.ts';
 import { initNavigation } from './navigation.ts';
+import { initLazyLoading } from './lazyLoading.ts';
 
-const setupGrid = async (hubData: HuluHub) => {
+const initGrid = async (hubData: HuluHub) => {
   // hydrate main hub title
   const hubTitle = document.getElementById('hub-title');
   if (hubTitle) {
@@ -86,6 +87,7 @@ export function hydrateCategoryCards(categoryElement: Element, categoryData: Col
 document.addEventListener('DOMContentLoaded', async () => {
   // fetch data
   const hubData = await fetchHuluHub();
-  setupGrid(hubData);
+  initGrid(hubData);
   initNavigation();
+  initLazyLoading(hubData);
 });
