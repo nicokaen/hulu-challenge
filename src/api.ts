@@ -17,7 +17,7 @@ export const fetchHuluHub = async (): Promise<HuluHub> => {
   //   return data;
 
   // simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return Promise.resolve(mock);
 };

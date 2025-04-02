@@ -4,6 +4,7 @@ import { fetchHuluHub } from './api.ts';
 import { initNavigation } from './navigation.ts';
 import { initLazyLoading } from './lazyLoading.ts';
 import { initGrid } from './grid.ts';
+import { initModal } from './modal.ts';
 
 // initialize the app
 document.addEventListener('DOMContentLoaded', async () => {
@@ -11,4 +12,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initGrid(hubData);
   initNavigation();
   initLazyLoading(hubData);
+  initModal(hubData);
 });

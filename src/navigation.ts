@@ -24,10 +24,6 @@ export function initNavigation() {
         // Move to the same index in the previous row
         focusedElement && moveFocusToNextRow(focusedElement, categories, -1);
         break;
-      case 'Enter':
-        // TODO: Open modal or perform action on the focused item
-        alert(`Selected: ${focusedElement?.textContent}`);
-        break;
     }
   });
 }

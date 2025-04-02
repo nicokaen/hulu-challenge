@@ -51,7 +51,6 @@ export async function initGrid(hubData: HuluHub) {
     });
   };
   
-  // TODO: can be re-used when needing to hydrate empty collections
   export function hydrateCategoryCards(categoryElement: Element, categoryData: CollectionItem) {
     const categoryRow = categoryElement.querySelector('.category__row');
     const categoryItems = categoryRow?.querySelectorAll('.card');
@@ -64,6 +63,10 @@ export async function initGrid(hubData: HuluHub) {
         if (cardTitleElement) {
           cardTitleElement.innerText = item?.visuals?.headline ?? 'Untitled';
         }
+
+        // Set data-id attribute to the card element
+        // don't use id attribute as it's may not be unique
+        itemElement.dataset.id = item.id;
   
         const cardThumbnailElement: HTMLElement | null =
           itemElement.querySelector('.card__thumbnail');
