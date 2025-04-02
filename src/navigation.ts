@@ -1,5 +1,3 @@
-import { HuluHub } from './types';
-
 export function initNavigation() {
   focusOnFirstCard();
 
