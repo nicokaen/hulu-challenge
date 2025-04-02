@@ -3,6 +3,7 @@ import './style.css';
 import { CollectionItem, HuluHub } from './types.ts';
 import { fetchHuluHub } from './api.ts';
 import { getImage } from './utils/image.utils.ts';
+import { initNavigation } from './navigation.ts';
 
 const setupGrid = async (hubData: HuluHub) => {
   // hydrate main hub title
@@ -86,4 +87,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   // fetch data
   const hubData = await fetchHuluHub();
   setupGrid(hubData);
+  initNavigation();
 });
