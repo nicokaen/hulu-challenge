@@ -1,4 +1,5 @@
-import { CollectionItem, HuluHub } from "../api/types";
+
+import { CollectionItem, HuluHub } from "../api";
 import { getImage } from "../utils/image.utils";
 
 

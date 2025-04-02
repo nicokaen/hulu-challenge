@@ -1,4 +1,4 @@
-import { HuluHub, CollectionItem } from "../api/types";
+import { CollectionItem, HuluHub } from "../api";
 import { getImage } from "../utils/image.utils";
 
 export async function initGrid(hubData: HuluHub) {

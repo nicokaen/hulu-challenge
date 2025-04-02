@@ -1,13 +1,7 @@
-import './styles/tokens.css'
-import './styles/base.css';
-import './styles/grid.css';
-import './styles/modal.css';
+import './styles';
 
-import { fetchHuluHub } from './api/api.ts';
-import { initNavigation } from './components/navigation.ts';
-import { initLazyLoading } from './components/lazyLoading.ts';
-import { initGrid } from './components/grid.ts';
-import { initModal } from './components/modal.ts';
+import { fetchHuluHub } from './api/';
+import { initGrid, initLazyLoading, initModal, initNavigation } from './components';
 
 // initialize the app
 document.addEventListener('DOMContentLoaded', async () => {
