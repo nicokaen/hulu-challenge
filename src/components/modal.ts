@@ -1,7 +1,5 @@
-
-import { CollectionItem, HuluHub } from "../api";
-import { getImage } from "../utils/image.utils";
-
+import { CollectionItem, HuluHub } from '../api';
+import { getImage } from '../utils/image.utils';
 
 export function initModal(hubData: HuluHub) {
   const modal = document.getElementById('modal')!;
@@ -16,7 +14,7 @@ export function initModal(hubData: HuluHub) {
       modalTitle.textContent = hubItem.visuals?.headline || 'Unknown Title';
       modalSubtitle.textContent = hubItem.visuals?.subtitle || 'Unknown Subtitle';
       modalDetail.textContent = hubItem.visuals?.body || 'No description available.';
-      
+
       // cover image
       const coverImagePath =
         hubItem.visuals?.artwork?.vertical_tile?.image?.path &&
@@ -63,10 +61,10 @@ export function initModal(hubData: HuluHub) {
   });
 
   // temp: open modal on first card focus
-//   const firstCard = document.querySelector('.card');
-//   const hubItemId = firstCard?.dataset?.id;
-//   const hubItem = hubItemId && getHubItemById(hubData, hubItemId);
-//   hubItem && openModal(hubItem);
+  //   const firstCard = document.querySelector('.card');
+  //   const hubItemId = firstCard?.dataset?.id;
+  //   const hubItem = hubItemId && getHubItemById(hubData, hubItemId);
+  //   hubItem && openModal(hubItem);
 }
 
 // TODO: may be moved to api.ts

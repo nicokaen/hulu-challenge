@@ -1,6 +1,5 @@
-import { fetchHubById, HuluHub } from "../api";
-import { hydrateCategoryCards } from "./grid";
-
+import { fetchHubById, HuluHub } from '../api';
+import { hydrateCategoryCards } from './grid';
 
 export function initLazyLoading(hubData: HuluHub) {
   document.addEventListener('keydown', (event) => {

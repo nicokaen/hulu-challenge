@@ -1,4 +1,4 @@
-import { HuluHub } from './api/types';
+import { HuluHub } from './types';
 
 // Temporary copy to avoid fetching data during development
 const mock: HuluHub = {

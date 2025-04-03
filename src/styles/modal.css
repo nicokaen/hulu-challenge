@@ -11,7 +11,7 @@
   z-index: 1000;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .4s ease;
+  transition: opacity 0.4s ease;
 }
 
 .modal--open {
@@ -61,14 +61,15 @@
 }
 
 .modal__title {
-  color: var(--hulu-green-lighter)
+  color: var(--hulu-green-lighter);
 }
 
 .modal__subtitle {
   color: var(--hulu-light-gray);
 }
 
-.modal__title, .modal__subtitle {
+.modal__title,
+.modal__subtitle {
   margin: 0 0 10px 0;
 }
 

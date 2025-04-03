@@ -64,15 +64,12 @@ function focusElement(element: HTMLElement) {
   });
 }
 
-function onBackspaceHandler(
-  focusedElement: Element,
-  categories: NodeListOf<Element>
-) {
+function onBackspaceHandler(focusedElement: Element, categories: NodeListOf<Element>) {
   const isModalOpen = document.querySelector('.modal--open');
   if (isModalOpen) {
     return;
   }
-  
+
   const currentRow = focusedElement.parentElement;
   const currentRowChildrenArray = currentRow ? Array.from(currentRow.children) : [];
   const currentCardIndex = currentRow && currentRowChildrenArray.indexOf(focusedElement);
