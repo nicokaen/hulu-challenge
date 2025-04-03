@@ -24,12 +24,12 @@ export function initModal(hubData: HuluHub) {
       modalCover.src = coverImagePath || '';
       modalCover.alt = hubItem.visuals?.headline || 'Show Cover';
     }
-    modal.style.display = 'flex';
+    modal.classList.add('modal--open');
     modal.setAttribute('aria-hidden', 'false');
   };
 
   const closeModal = () => {
-    modal.style.display = 'none';
+    modal.classList.remove('modal--open');
     modal.setAttribute('aria-hidden', 'true');
   };
 
@@ -56,6 +56,7 @@ export function initModal(hubData: HuluHub) {
         onEnterHandler();
         break;
       case 'Escape':
+      case 'Backspace':
         closeModal();
         break;
     }

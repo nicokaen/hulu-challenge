@@ -11,6 +11,10 @@
   z-index: 1000;
 }
 
+.modal--open {
+  display: flex;
+}
+
 .modal__content {
   background-color: #222;
   color: #fff;
