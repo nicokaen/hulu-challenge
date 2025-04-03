@@ -12,7 +12,6 @@ export function initModal(hubData: HuluHub) {
   const modalCover = document.getElementById('modalCover') as HTMLImageElement;
 
   const openModal = (hubItem: CollectionItem) => {
-    console.log('hubItem', hubItem);
     if (hubItem) {
       modalTitle.textContent = hubItem.visuals?.headline || 'Unknown Title';
       modalSubtitle.textContent = hubItem.visuals?.subtitle || 'Unknown Subtitle';

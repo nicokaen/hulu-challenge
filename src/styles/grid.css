@@ -39,16 +39,15 @@
 
 .card {
   flex: 0 0 18%;
-  height: 160px;
+  height: 180px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 4px;
+  margin: 10px 4px;
   overflow: hidden;
   border-radius: 10px;
   transition: transform 0.3s ease;
   cursor: pointer;
-  outline: none; /* Remove default focus outline */
 }
 
 .card:focus {
@@ -57,6 +56,14 @@
   border: 2px solid var(--hulu-green);
   background-color: rgba(0, 0, 0, 0.5);
   padding: 4px;
+  margin: 4px 16px;
+}
+
+.card:focus:first-child {
+  margin-left: 16px;
+}
+.card:focus:last-child {
+  margin-right: 16px;
 }
 
 .card__thumbnail {
@@ -93,6 +100,7 @@
   animation: shimmer 1.5s infinite;
 }
 
+/* Skeleton loading animation */
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);

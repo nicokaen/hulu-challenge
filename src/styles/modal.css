@@ -51,11 +51,19 @@
   max-width: 500px;
 }
 
-.modal__text h3, .modal__text h4 {
+.modal__title {
+  color: var(--hulu-green-lighter)
+}
+
+.modal__subtitle {
+  color: var(--hulu-light-gray);
+}
+
+.modal__title, .modal__subtitle {
   margin: 0 0 10px 0;
 }
 
-.modal__text p {
+.modal__details {
   font-size: 16px;
   line-height: 1.5;
 }
