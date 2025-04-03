@@ -25,15 +25,19 @@ export async function initGrid(hubData: HuluHub) {
 
   // clone as many category elements as there are in the hubData.components array
   if (categoryTemplateElement && categoriesContainerElement) {
-    // Clone and append category elements to the fragment
+    // Create a document fragment to hold the cloned category elements
+    const fragment = document.createDocumentFragment();
+
     const categoriesCount = hubData.components.length - 1;
     for (let i = 0; i < categoriesCount; i++) {
       const categoryElement = categoryTemplateElement.cloneNode(true) as HTMLElement;
       categoryElement.id = `category-${i}`;
-
-      // TODO: research about performance!
-      categoriesContainerElement.appendChild(categoryElement);
+      // Append the cloned element to the fragment
+      fragment.appendChild(categoryElement);
     }
+
+    // Append the fragment to the categories container once
+    categoriesContainerElement.appendChild(fragment);
   }
 
   const categories = document.querySelectorAll('.category');
@@ -45,6 +49,11 @@ export async function initGrid(hubData: HuluHub) {
       if (title) {
         title.innerText = collection.name ?? 'Untitled';
       }
+      const categoryTheme =
+        collection.theme === 'standard_horizontal_promptless'
+          ? 'category__default__theme'
+          : 'category__medium__theme';
+      categoryElement.classList.add(categoryTheme);
 
       hydrateCategoryCards(categoryElement, collection);
     }

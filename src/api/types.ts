@@ -79,6 +79,7 @@ export type CollectionItem = {
   entity_metadata?: EntityMetadata;
   name?: string;
   view_template?: string;
+  theme?: string;
   items?: CollectionItem[];
 };
 
