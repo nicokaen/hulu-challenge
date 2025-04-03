@@ -1,5 +1,5 @@
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,10 +9,14 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .4s ease;
 }
 
 .modal--open {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__content {
@@ -42,6 +46,7 @@
   flex-direction: row; /* Adjust for horizontal layout */
   gap: 20px;
   align-items: center;
+  min-height: 450px;
 }
 
 .modal__cover {
