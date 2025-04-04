@@ -34,11 +34,15 @@
 }
 
 .modal__close {
-  position: absolute;
-  right: 12px;
-  cursor: pointer;
-  font-size: 28px;
+  background: none;
+  border: none;
   color: #fff;
+  font-size: 28px;
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  padding: 0;
+  margin: 0;
 }
 
 .modal__body {
