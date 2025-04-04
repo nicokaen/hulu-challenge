@@ -64,6 +64,13 @@
   margin: 4px 16px;
 }
 
+/* Avoid first/last card out-of-screen */
+.category__medium__theme .card:focus:first-child {
+  margin-left: 24px;
+}
+.category__medium__theme .card:focus:last-child {
+  margin-right: 24px;
+}
 .card:focus:first-child {
   margin-left: 16px;
 }
