@@ -1,4 +1,5 @@
 import { fetchHubById, HuluHub } from '../api';
+import { onError } from '../utils/errors.utils';
 import { hydrateCategoryCards } from './grid';
 
 export function initLazyLoading(hubData: HuluHub) {
@@ -31,15 +32,18 @@ async function fetchMoreData(categories: NodeListOf<Element>, hubData: HuluHub) 
   const futureRowIndex = currentCategoryIndex + ROW_PRELOAD_OFFSET;
   if (currentCategoryIndex && shouldFetchMoreData(futureRowIndex, hubData)) {
     const category = hubData.components[futureRowIndex];
-    const categoryData = await fetchHubById(category.id);
 
-    // Update hubData with new category data
-    if (categoryData?.items) {
-      category.items = [...categoryData.items];
+    try {
+      const categoryData = await fetchHubById(category.id);
+      if (categoryData?.items) {
+        category.items = [...categoryData.items];
+      }
+
+      // Hydrate the new category data
+      categoriesArray[futureRowIndex]?.parentElement &&
+        hydrateCategoryCards(categoriesArray[futureRowIndex]?.parentElement, category);
+    } catch (error) {
+      onError(error);
     }
-
-    // Hydrate the new category data
-    categoriesArray[futureRowIndex]?.parentElement &&
-      hydrateCategoryCards(categoriesArray[futureRowIndex]?.parentElement, category);
   }
 }

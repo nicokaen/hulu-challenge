@@ -4,3 +4,15 @@ body {
   background-color: var(--hulu-gray);
   color: var(--hulu-text);
 }
+
+.error-message {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background-color: var(--hulu-red);
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
