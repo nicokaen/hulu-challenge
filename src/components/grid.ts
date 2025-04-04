@@ -1,6 +1,10 @@
 import { CollectionItem, HuluHub } from '../api';
 import { getImage } from '../utils/image.utils';
 
+const HERO_IMAGE_SIZE = '1280x720';
+const CARD_IMAGE_SIZE = '400x225';
+const WATERMARK_IMAGE_SIZE = '60x60';
+
 export async function initGrid(hubData: HuluHub) {
   // hydrate main hub title
   const hubTitle = document.getElementById('hub-title');
@@ -13,7 +17,7 @@ export async function initGrid(hubData: HuluHub) {
   const hubHeroImage = hubData?.artwork['detail.horizontal.hero']?.path;
   if (hubHero && hubHeroImage) {
     // TODO: implement hue from artwork data
-    hubHero.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, .9), #1e2126), url(${hubHeroImage}&size=1280x720&format=jpeg)`;
+    hubHero.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, .9), #1e2126), url(${getImage(hubHeroImage, HERO_IMAGE_SIZE)})`;
   }
 
   // hydrate categories/collections
@@ -79,13 +83,26 @@ export function hydrateCategoryCards(categoryElement: Element, categoryData: Col
 
       const cardThumbnailElement: HTMLElement | null =
         itemElement.querySelector('.card__thumbnail');
+
       const cardThumbnailImage = item?.visuals?.artwork.horizontal_tile?.image.path;
-      if (cardThumbnailElement && cardThumbnailImage) {
-        cardThumbnailElement.style.backgroundImage = `url(${getImage(
-          cardThumbnailImage,
-          '400x225'
+      const watermarkPath = item?.visuals?.primary_branding?.artwork?.['brand.watermark.bottom.right']?.path;
+      
+      if (cardThumbnailElement && watermarkPath) {
+        cardThumbnailElement.classList.add('card__thumbnail__watermark');
+        cardThumbnailElement.style.backgroundImage += `url(${getImage(
+          watermarkPath,
+          WATERMARK_IMAGE_SIZE,
+          'png'
         )})`;
       }
+
+      if (cardThumbnailElement && cardThumbnailImage) {
+        cardThumbnailElement.style.backgroundImage += `${watermarkPath ? ', ' : ''}url(${getImage(
+          cardThumbnailImage,
+          CARD_IMAGE_SIZE,
+        )})`;
+      }
+
     }
   });
 }

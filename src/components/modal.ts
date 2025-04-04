@@ -1,6 +1,8 @@
 import { CollectionItem, HuluHub } from '../api';
 import { getImage } from '../utils/image.utils';
 
+const MODAL_IMAGE_SIZE = '300x450';
+
 export function initModal(hubData: HuluHub) {
   const modal = document.getElementById('modal')!;
   const modalClose = document.getElementById('modalClose')!;
@@ -18,7 +20,7 @@ export function initModal(hubData: HuluHub) {
       // cover image
       const coverImagePath =
         hubItem.visuals?.artwork?.vertical_tile?.image?.path &&
-        getImage(hubItem.visuals?.artwork?.vertical_tile?.image?.path, '300x450');
+        getImage(hubItem.visuals?.artwork?.vertical_tile?.image?.path, MODAL_IMAGE_SIZE);
       modalCover.src = coverImagePath || '';
       modalCover.alt = hubItem.visuals?.headline || 'Show Cover';
     }
